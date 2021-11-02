@@ -1,0 +1,80 @@
+[{
+    "id": 1,
+    "first_name": "Brucie",
+    "last_name": "Ivushkin",
+    "email": "bivushkin0@slate.com",
+    "gender": "Non-binary",
+    "ip_address": "8.29.52.119"
+},
+{
+    "id": 2,
+    "first_name": "Adriaens",
+    "last_name": "Kaminski",
+    "email": "akaminski1@bloglines.com",
+    "gender": "Non-binary",
+    "ip_address": "201.105.226.223"
+},
+{
+    "id": 3,
+    "first_name": "Sallee",
+    "last_name": "Mellish",
+    "email": "smellish2@twitter.com",
+    "gender": "Agender",
+    "ip_address": "119.198.51.172"
+},
+{
+    "id": 4,
+    "first_name": "Marshall",
+    "last_name": "Vest",
+    "email": "mvest3@va.gov",
+    "gender": "Genderfluid",
+    "ip_address": "75.40.100.89"
+},
+{
+    "id": 5,
+    "first_name": "Daphne",
+    "last_name": "Woodburne",
+    "email": "dwoodburne4@studiopress.com",
+    "gender": "Genderfluid",
+    "ip_address": "146.71.200.16"
+},
+{
+    "id": 6,
+    "first_name": "Jane",
+    "last_name": "Letterese",
+    "email": "jletterese5@yandex.ru",
+    "gender": "Non-binary",
+    "ip_address": "151.132.95.21"
+},
+{
+    "id": 7,
+    "first_name": "Rubetta",
+    "last_name": "Herity",
+    "email": "rherity6@people.com.cn",
+    "gender": "Bigender",
+    "ip_address": "93.128.48.193"
+},
+{
+    "id": 8,
+    "first_name": "Karyn",
+    "last_name": "Somes",
+    "email": "ksomes7@smh.com.au",
+    "gender": "Agender",
+    "ip_address": "197.234.141.242"
+},
+{
+    "id": 9,
+    "first_name": "Jordain",
+    "last_name": "Guirau",
+    "email": "jguirau8@ucla.edu",
+    "gender": "Polygender",
+    "ip_address": "5.19.249.172"
+},
+{
+    "id": 10,
+    "first_name": "Kakalina",
+    "last_name": "Corfield",
+    "email": "kcorfield9@privacy.gov.au",
+    "gender": "Female",
+    "ip_address": "226.168.188.138"
+}]

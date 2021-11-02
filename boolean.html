@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolean.html</title>
+</head>
+
+<body>
+
+    <script>
+        // 값이 없는 것은 모두 false다 
+        //0, null , '' , -0, undefined상태 모두 false로 판단함
+        let val = 0;
+        val = 0;
+        // if(val > 4 ? 'true' : 'false'){ //문자열은 그냥 값만 있어도 true값을 보여줌
+        // if(val > 4 ? true : false){   //이 경우에는 값을 비교하기대문에 '거짓'으로 출력함
+        if (!!Math.sign(val)) { //! ! 거짓의 거짓.. 거짓........
+            console.log('참')
+
+        } else {
+            console.log('거짓')
+        }
+    </script>
+
+    <p id="demo"></p>
+    <script>
+        const letters = new Set(["a", "b", "c"]); //set collection: 중복된 값은 제외하는 특징
+        letters.add('d');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+
+
+        letters.delete('d');
+        letters.forEach(function (a, b, c) {
+            console.log(a, b, c);
+
+        });
+
+        //    console.log(letters.values()); //0번째 값을 가져올 수 있었
+        let result = letters.values();
+        console.log(letters.size);
+
+        // for(let val of letters.values()){
+        //     console.log(val);
+        // }
+
+        // for(let i = 0; i <4; i ++){
+        //     console.log(result[i]);
+        // }
+
+        for (let val of result) {
+            console.log(val);
+        }
+
+
+        //map :key와 value형식으로 데이터를 만들어줌 key : value = > entry
+        //값을 지정할 때 set이라는 메소드를 사용한다
+        const fruits = new Map();
+        fruits.set('apple', 500); //(key, value);
+        fruits.set('banana', 400);
+        fruits.set('cherry', 300);
+        let price = fruits.get('apple'); //fruits에해당하는 key값을 가져와주세요 그걸 price라는 변수에넣을게
+        console.log(price); //apple에 해당하는 가격이 출력됨
+
+        fruits.entries(); //key와 value값을 둘다 가져와주는 메소드
+        console.log(fruits.entries());
+        //반복요소를 가져오고싶다면
+
+        let fruitAry = [];
+        for (let ent of fruits.entries()) {
+            console.log(ent); //배열형식으로 출력해주게 됨 //entry타입 => ['key','val']
+            // console.log(ent[0]); //키만 보고 싶은 경우 [0]
+            fruitAry.push(ent); //fruiAry에 ent를 넣고
+        }
+        console.log(fruitAry); //[['apple',500], ['banana',400],['cherry',300]]; //배열형식으로 묶이게..
+
+        fruits.forEach(function (val, key, map) {
+            console.log(val, key, map);
+
+        });
+
+        //RegExp
+        //:search()나 replace()의 매개값으로 쓰여짐
+
+        let ary = []; //new Array();
+        let obj = {}; //new Object();
+        let reg = /W3SCHOOLS/i; //new RegExp(); // 초기값이 반드시 하나 들어가야함
+        //i : 대소문자 구분은 하지 않겠다
+        console.log(typeof reg); //object 
+
+        let text = "Visit W3Schools!"; //이 문장안에서 reg를 찾아오기. 그 다음에...
+        let n = text.search(reg);
+        console.log(n);
+
+        text = "Visit Microsoft!";
+         result = text.replace(/Microsoft/i, "W3Schools");
+         console.log(result);
+    </script>
+</body>
+
+</html>

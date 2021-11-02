@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random.html</title>
+    <style>
+            td{
+                width: 50px;
+                height: 50px;
+                border: 1px solid rgb(138, 126, 126);
+                font-size: 20px;
+                color: white; 
+                /* 글씨 안보이게(값은 들어가있음)  클릭할대마다 화면에 보여주려고*/
+                text-align: center;
+            }
+            input{
+                /* input태그는 기본크기가정해져있어서 다시 설정해주자 */
+                margin: 0;
+                padding: 0;
+                width: 50px;
+                height: 50px;
+                color: white;
+                text-align: center;
+                font-size: 30px;
+            }
+            .selected{
+                /* 선택했을 때의 클래스 */
+                color: rgb(255, 255, 81);
+                background-color: rgb(87, 87, 161);
+                transition: all 0.5s; 
+                /* 다 선택해서 2초동안 바꿔주도록 하겠다.... */
+            }
+
+            .selected:focus {
+                color: rgb(255, 255, 81);
+                background-color: rgb(87, 87, 161);
+            }
+            .correct{
+                /* 맞을 경우의 클래스 */
+                color: rgb(223, 223, 223);
+                background-color: rgb(218, 123, 151);
+            }
+
+            .not_correct{
+                /*  틀린 경우의 클래스 */
+                color: white;
+                background-color: white;
+            }
+
+    </style>
+</head>
+<body>
+        <div id="show">
+            <!-- 16개짜리 숫자가 만들어지도록! -->
+
+        </div>
+
+        <script>
+            //프로그램 사이즈를 정하자자
+            let forBy = 6; 
+            let pow = Math.pow(forBy,2);
+            let half_pow = pow / 2 ;
+
+            //배열을 임의로 생성할 것
+            let randomAry = [];
+                while (randomAry.length !=pow){ //랜덤이 16개가 되기 전 까지는
+                        let randomVal = Math.floor(Math.random() * pow) +1; //1-16까지의 임의의 정수
+                        //중복값제거하자
+                        if(randomAry.indexOf(randomVal) == -1){ //-1 방금만든 배열 값 안에 없다는 뜻
+                                randomAry.push(randomVal);
+                        }
+                }
+                console.log(randomAry);
+
+                //화면에 그려보자
+                let table, tbody, tr, td;
+                table = document.createElement('table'); //테이블도 div밑에 붙여주자
+                tbody = document.createElement('tbody');
+                table.appendChild(tbody); //관계
+                document.getElementById("show").appendChild(table);//테이블도 div밑에 붙여주자 <div id="show">
+        
+
+                randomAry.forEach(function(val,ind){
+                                    //forEach의 매개값으로 함수가 들어온 것
+                        //tbody안에들어갈 tr
+                        if(ind % forBy ==0){ //첫번째값이 나오면 tr만들어줌 //네칸 단위로 잘라서
+                                tr = document.createElement('tr');
+                                tbody.appendChild(tr); //tbody안에 tr이들어감
+
+                        }
+
+                        //td만들기 (tr에 갖다붙이기위한)
+                        td = document.createElement('td');
+                      
+                        //td에 클릭이벤트를 주자
+                        td.onclick = function(){
+                            //td를클릭하면 이벤트를 받는 대상이 td니까 this라고 함
+                            this.children[0].className = 'selected'; //18행
+                            //2초 지연 메소드
+                            window.setTimeout(function(){
+                                let selVal=  document.querySelectorAll('.selected'); //all이면 전부를 만족하는걸 다 가져오겠다는 뜻
+                                if(selVal.length !=2 ){ //두개이상 선택하면 그냥 화면에서 지워주는 작업
+                                    for (let i = 0;  i < selVal.length; i ++){
+                                        selVal[0].className = 'not_correct';
+                                    }
+                                    return; 
+                                }
+                                if(selVal.length !=2){
+                                //선택한 두개의 값이 두개가 안되면 프로그램끝내기
+                                //   2초 있다가 계산하도록 바꿔줘야함 //onclick안에다가 해결해보자..
+                            }
+                            //두개가 되면 비교하는 연산을 진행하겠다.
+                            if(selVal[0].value == selVal[1].value){ //0:첫번째 1:두번째 뒤집은 값 //input태그안에 든 value 속성이 같으면
+                                //선택한 value값이 두개가 같으면!
+                                selVal[0].className = 'correct'; //correct클래스를 불러와줘
+                                selVal[1].className = 'correct';
+                              
+                            } else{
+                                selVal[0].className = 'non_correct'; //non_correct클래스를 불러와줘
+                                selVal[1].className = 'non_correct';
+                            }
+                            },2000);
+                         
+                        }
+                        let inputVal = val > half_pow ? ( val - half_pow) : val;//value값이 8보다 크면 val = 8뺀 값을 넣어주고
+                            //1-8까지는 그대로 9부터는 다시 1-8까지 만들어줘야함
+                            // td.innerHTML = inputVal;
+                            td.innerHTML = `<input type = " text" value = "${inputVal}">`; //td의 html안에다가 input태그를 써주자
+                                                                                                    //input태그는 포커스라고 하는 가상 상태를 나타내줄 수 있음(클릭으로)
+                            tr.appendChild(td); //만든 td를 tr에 붙여넣겠습니당.
+                }); //randomAry에 들어있는 갯수만큼 반복하면서 콜백함수를 불러줌
+
+                    
+        </script>
+</body>
+</html>

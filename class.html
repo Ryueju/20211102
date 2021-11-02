@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class.html</title>
+    <!-- <script src="class1.js"></script> -->
+</head>
+<body>
+        <div id="add">
+            학번 : <input type="text" id="studentNo"><br>
+            이름 : <input type="text" id="studentName"><br>
+            점수 : <input type="number" id="score"><br>
+            학년 : <input type="number" id="grade"><br>
+            <button id="btn">추가</button>
+        </div>
+        <p></p>
+        <div id="show"></div> 
+        <!-- 추가 버튼을 누르면 show가 실행 -->
+<!-- tr을 리턴해주도록 해서 메소드를 가지고 안에 
+추가하는 기능들을 넣어서..만들어보세요..... -->
+
+<script>
+        function btn(){
+            var student = document.getElementsByTagName('input')[0].value;
+            var studentNo='';
+                for(i = 0; i<student.length; i++){
+                    if(student == ''){
+                        studentNo = '';
+                    } else{
+                        student_1 += '<th>' + student[i] + '</th>'; //th
+                    }
+                };
+                var score = document.getElementsByTagName('input')[1].value;
+                var student_2 = '';
+                for(i = 0; i< score.length; i++){
+                    if( student2 ==''){
+                        student_2 = '';
+                    } else {
+                        student_2 += '<td>' + student2[i] + '</td>';
+                    }
+
+                };
+                var student3 = document.getElementsByTagName('input')[2].value;
+                var student_3 = '';
+                for(i = 0; i< student3.length; i++){
+                    if( student3 ==''){
+                        student_3 = '';
+                    } else {
+                        student_3 += '<td>' + student4[i] + '</td>';
+                    }
+
+                };
+                var student4 = document.getElementsByTagName('input')[3].value;
+                var student_4 = '';
+                for(i = 0; i< student4.length; i++){
+                    if( student4 ==''){
+                        student_4 = '';
+                    } else {
+                        student_4 += '<td>' + student4[i] + '</td>';
+                    }
+
+                };
+                document.getElementsByTagName('p')[0].innerHTML = '<table><tr><th>'+ studnet_1+'</tr><tr>'+student_2 + '</tr><tr>' +student_3 + '</tr><tr>' + student_4 +'</tr></table>';
+
+                    
+                }
+        }
+
+
+
+
+</script>
+</body>
+</html>
